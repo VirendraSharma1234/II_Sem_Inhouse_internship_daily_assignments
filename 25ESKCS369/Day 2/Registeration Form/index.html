@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <h1 align="center">Registration Form</h1>
+    
+    <form>
+
+        <table align="center" cellpadding="10">
+
+            <tr>
+                <td><label for="name">Full Name:</label></td>
+                <td><input type="text" id="name" name="name" placeholder="Enter your name" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="age">Age:</label></td>
+                <td><input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="gender">Gender:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other">Other</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="example@gmail.com" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="mobile">Mobile No:</label></td>
+                <td><input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" placeholder="Enter your password" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="confirm">Confirm Password:</label></td>
+                <td><input type="password" id="confirm" name="confirm" placeholder="Confirm your password" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td>
+                    <select id="state" name="state" placeholder="Select your state" required>
+                        <option value="">--Select State--</option>
+                        <option>Rajasthan</option>
+                        <option>Maharashtra</option>
+                        <option>Delhi</option>
+                        <option>Gujarat</option>
+                        <option>Punjab</option>
+                        <option>Uttar Pradesh</option>
+                        <option>Haryana</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td>
+                    <select id="city" name="city" placeholder="Select your city" required>
+                        <option value="">--Select City--</option>
+                        <option>Jaipur</option>
+                        <option>Jodhpur</option>
+                        <option>Udaipur</option>
+                        <option>Kota</option>
+                        <option>Ajmer</option>
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td>
+                    <textarea id="address" name="address" rows="4" cols="25" placeholder="Enter your address"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Register">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+</html>
+

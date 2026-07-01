@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission Form — 2026-27</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ── Header ──────────────────────────────── -->
+    <header class="form-header">
+      <button id="darkModeToggle">🌙 Dark Mode</button>
+
+      <div class="college-logo">A</div>
+      <h1>VKIT - Admission Form</h1>
+      <p class="subtitle">
+        Academic Year 2026-27 &nbsp;·&nbsp; All fields marked
+        <span style="color: #e6a817">✶</span> are required
+      </p>
+      <div class="accent-bar"></div>
+    </header>
+
+    <!-- ── Progress Steps ──────────────────────── -->
+    <nav class="progress-tracker" aria-label="Form sections">
+      <div class="progress-step active">
+        <span class="step-num">1</span> Personal Info
+        <span class="step-divider"></span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-num">2</span> Parent / Guardian Info
+        <span class="step-divider"></span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-num">3</span> Residential Info
+        <span class="step-divider"></span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-num">4</span> Academic Info
+        <span class="step-divider"></span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-num">5</span> Course Info
+        <span class="step-divider"></span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-num">6</span> Documents
+        <span class="step-divider"></span>
+      </div>
+      <div class="progress-step active">
+        <span class="step-num">7</span> Declaration
+      </div>
+    </nav>
+
+    <!-- ── Main Form ────────────────────────────── -->
+    <main class="form-wrapper">
+      <form id="admissionForm" novalidate>
+        <!-- ── 1. Personal Information ──────────── -->
+        <section class="form-card" id="section-personal">
+          <div class="section-header">
+            <span class="section-icon">👤</span>
+            <h2>Personal Information</h2>
+            <span class="section-badge">Step 1</span>
+          </div>
+          <div class="section-body">
+            <div class="field-grid">
+              <div class="field-group span-2">
+                <label for="name"
+                  >Full Name <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="As per official documents"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+
+              <div class="field-group span-2">
+                <label>Gender <span class="required-star">✶</span></label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="gender" value="male" required />
+                    <span>Male</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="gender" value="female" />
+                    <span>Female</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="gender" value="other" />
+                    <span>Other / Prefer not to say</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="email"
+                  >Email Address <span class="required-star">✶</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="dob"
+                  >Date of Birth <span class="required-star">✶</span></label
+                >
+                <input type="date" id="dob" name="dob" required />
+              </div>
+
+              <div class="field-group">
+                <label for="phone"
+                  >Phone Number <span class="required-star">✶</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{10}"
+                  placeholder="10-digit mobile number"
+                  autocomplete="tel"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="alternate_phone">Alternate Phone Number</label>
+                <input
+                  type="tel"
+                  id="alternate_phone"
+                  name="alternate_phone"
+                  pattern="[0-9]{10}"
+                  placeholder="Optional"
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="aadhar"
+                  >Aadhaar Number <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="aadhar"
+                  name="aadhar"
+                  pattern="[0-9]{12}"
+                  maxlength="12"
+                  placeholder="12-digit number"
+                  required
+                />
+                <span class="field-hint"
+                  >Enter 12-digit Aadhaar without spaces.</span
+                >
+              </div>
+
+              <div class="field-group">
+                <label for="religion"
+                  >Religion <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="religion"
+                  name="religion"
+                  placeholder="e.g. Hindu, Muslim, Christian…"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="category"
+                  >Category <span class="required-star">✶</span></label
+                >
+                <select id="category" name="category" required>
+                  <option value="">Select category</option>
+                  <option value="general">General</option>
+                  <option value="obc">OBC</option>
+                  <option value="sc">SC</option>
+                  <option value="st">ST</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 2. Parent / Guardian Information ─── -->
+        <section class="form-card" id="section-parent">
+          <div class="section-header">
+            <span class="section-icon">👨‍👩‍👧</span>
+            <h2>Parent / Guardian Information</h2>
+            <span class="section-badge">Step 2</span>
+          </div>
+          <div class="section-body">
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="father_name"
+                  >Father's Name <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="father_name"
+                  name="father_name"
+                  placeholder="Full name"
+                  required
+                />
+              </div>
+              <div class="field-group">
+                <label for="father_occupation"
+                  >Father's Occupation
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="father_occupation"
+                  name="father_occupation"
+                  placeholder="e.g. Engineer, Farmer…"
+                  required
+                />
+              </div>
+              <div class="field-group span-2">
+                <label for="father_phone"
+                  >Father's Phone Number
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="tel"
+                  id="father_phone"
+                  name="father_phone"
+                  pattern="[0-9]{10}"
+                  placeholder="10-digit mobile number"
+                  required
+                />
+              </div>
+            </div>
+
+            <hr class="section-divider" />
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="mother_name"
+                  >Mother's Name <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="mother_name"
+                  name="mother_name"
+                  placeholder="Full name"
+                  required
+                />
+              </div>
+              <div class="field-group">
+                <label for="mother_occupation"
+                  >Mother's Occupation
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="mother_occupation"
+                  name="mother_occupation"
+                  placeholder="e.g. Teacher, Homemaker…"
+                  required
+                />
+              </div>
+              <div class="field-group span-2">
+                <label for="mother_phone"
+                  >Mother's Phone Number
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="tel"
+                  id="mother_phone"
+                  name="mother_phone"
+                  pattern="[0-9]{10}"
+                  placeholder="10-digit mobile number"
+                  required
+                />
+              </div>
+            </div>
+
+            <hr class="section-divider" />
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="guardian_name"
+                  >Guardian's Name
+                  <span style="color: var(--text-muted); font-weight: 400"
+                    >(if applicable)</span
+                  ></label
+                >
+                <input
+                  type="text"
+                  id="guardian_name"
+                  name="guardian_name"
+                  placeholder="Full name"
+                />
+              </div>
+              <div class="field-group">
+                <label for="guardian_occupation">Guardian's Occupation</label>
+                <input
+                  type="text"
+                  id="guardian_occupation"
+                  name="guardian_occupation"
+                  placeholder="Occupation"
+                />
+              </div>
+              <div class="field-group span-2">
+                <label for="annual_income"
+                  >Family Annual Income
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="number"
+                  id="annual_income"
+                  name="annual_income"
+                  min="0"
+                  step="1"
+                  placeholder="Amount in ₹ (Indian Rupees)"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 3. Residential Information ──────── -->
+        <section class="form-card" id="section-residential">
+          <div class="section-header">
+            <span class="section-icon">🏠</span>
+            <h2>Residential Information</h2>
+            <span class="section-badge">Step 3</span>
+          </div>
+          <div class="section-body">
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="country"
+                  >Country <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  placeholder="e.g. India"
+                  autocomplete="country-name"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="state"
+                  >State <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  placeholder="e.g. Rajasthan"
+                  autocomplete="address-level1"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="city"
+                  >City / District <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="e.g. Jaipur"
+                  autocomplete="address-level2"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="pin"
+                  >PIN Code <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="pin"
+                  name="pin"
+                  pattern="[0-9]{6}"
+                  maxlength="6"
+                  placeholder="6-digit PIN"
+                  autocomplete="postal-code"
+                  required
+                />
+              </div>
+
+              <div class="field-group span-2">
+                <label for="address"
+                  >Full Address <span class="required-star">✶</span></label
+                >
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="3"
+                  placeholder="House/Flat No., Street, Locality, City, State — PIN"
+                  autocomplete="street-address"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 4. Academic Information ──────────── -->
+        <section class="form-card" id="section-academic">
+          <div class="section-header">
+            <span class="section-icon">🎓</span>
+            <h2>Academic Information</h2>
+            <span class="section-badge">Step 4</span>
+          </div>
+          <div class="section-body">
+            <div class="field-grid">
+              <div class="field-group span-2">
+                <label for="high_school"
+                  >Previous School / College Name
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="high_school"
+                  name="high_school"
+                  placeholder="Full name of institution"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="board"
+                  >Board / University
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="board"
+                  name="board"
+                  placeholder="e.g. CBSE, RBSE, ICSE"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="year_of_passing"
+                  >Year of Passing <span class="required-star">✶</span></label
+                >
+                <input
+                  type="number"
+                  id="year_of_passing"
+                  name="year_of_passing"
+                  min="1990"
+                  max="2099"
+                  step="1"
+                  placeholder="e.g. 2024"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="high_school_percentage"
+                  >Aggregate Percentage / CGPA
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="number"
+                  id="high_school_percentage"
+                  name="high_school_percentage"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  placeholder="e.g. 85.50"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="subject_studied"
+                  >Subjects Studied <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="subject_studied"
+                  name="subject_studied"
+                  placeholder="e.g. Physics, Chemistry, Maths"
+                  required
+                />
+              </div>
+
+              <hr class="section-divider span-2" />
+
+              <div class="field-group">
+                <label for="diploma">Diploma (if applicable)</label>
+                <input
+                  type="text"
+                  id="diploma"
+                  name="diploma"
+                  placeholder="Diploma course name"
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="diploma_percentage">Diploma Percentage</label>
+                <input
+                  type="number"
+                  id="diploma_percentage"
+                  name="diploma_percentage"
+                  min="0"
+                  max="100"
+                  step="0.01"
+                  placeholder="e.g. 72.00"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 5. Course & Branch Selection ──────── -->
+        <section class="form-card" id="section-course">
+          <div class="section-header">
+            <span class="section-icon">📚</span>
+            <h2>Course &amp; Branch Selection</h2>
+            <span class="section-badge">Step 5</span>
+          </div>
+          <div class="section-body">
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="course"
+                  >Programme <span class="required-star">✶</span></label
+                >
+                <select id="course" name="course" required>
+                  <option value="">Select programme</option>
+                  <option value="btech">B.Tech</option>
+                  <option value="mtech">M.Tech</option>
+                  <option value="mba">MBA</option>
+                  <option value="msc">M.Sc</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="mode_of_study"
+                  >Mode of Study <span class="required-star">✶</span></label
+                >
+                <select id="mode_of_study" name="mode_of_study" required>
+                  <option value="">Select mode</option>
+                  <option value="full_time">Full-time</option>
+                  <option value="part_time">Part-time</option>
+                  <option value="online">Online</option>
+                </select>
+              </div>
+
+              <div class="field-group span-2">
+                <label for="branch"
+                  >Branch / Specialisation
+                  <span class="required-star">✶</span></label
+                >
+                <select id="branch" name="branch" required>
+                  <option value="">Select branch</option>
+                  <optgroup label="Computer & IT">
+                    <option value="computer_science">
+                      Computer Science Engineering
+                    </option>
+                    <option value="information_technology">
+                      Information Technology
+                    </option>
+                    <option value="artificial_intelligence">
+                      Artificial Intelligence &amp; Machine Learning
+                    </option>
+                    <option value="data_science">Data Science</option>
+                    <option value="cyber_security">Cyber Security</option>
+                  </optgroup>
+                  <optgroup label="Electronics & Electrical">
+                    <option value="electronics_communication">
+                      Electronics &amp; Communication Engineering
+                    </option>
+                    <option value="electrical_engineering">
+                      Electrical Engineering
+                    </option>
+                  </optgroup>
+                  <optgroup label="Mechanical & Civil">
+                    <option value="mechanical_engineering">
+                      Mechanical Engineering
+                    </option>
+                    <option value="civil_engineering">Civil Engineering</option>
+                    <option value="automobile_engineering">
+                      Automobile Engineering
+                    </option>
+                    <option value="mechatronics">Mechatronics</option>
+                    <option value="aerospace_engineering">
+                      Aerospace Engineering
+                    </option>
+                  </optgroup>
+                  <optgroup label="Science & Management">
+                    <option value="chemical_engineering">
+                      Chemical Engineering
+                    </option>
+                    <option value="biotechnology">Biotechnology</option>
+                    <option value="business_administration">
+                      Business Administration
+                    </option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 6. Document Submission ─────────────── -->
+        <section class="form-card" id="section-documents">
+          <div class="section-header">
+            <span class="section-icon">📎</span>
+            <h2>Document Submission</h2>
+            <span class="section-badge">Step 6</span>
+          </div>
+          <div class="section-body">
+            <div class="info-note">
+              ℹ️ Upload clear, legible scans. Photos/signatures: JPG or PNG (max
+              200 KB). Documents: PDF only (max 1 MB each).
+            </div>
+
+            <div class="doc-grid">
+              <div class="field-group">
+                <label
+                  >Passport Photo <span class="required-star">✶</span></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="photo">
+                    <span class="upload-icon">🖼️</span>
+                    <span class="upload-text">
+                      Choose photo
+                      <small>JPG / PNG &nbsp;·&nbsp; max 200 KB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label>Signature <span class="required-star">✶</span></label>
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="signature">
+                    <span class="upload-icon">✍️</span>
+                    <span class="upload-text">
+                      Choose signature
+                      <small>JPG / PNG &nbsp;·&nbsp; max 200 KB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="signature"
+                    name="signature"
+                    accept="image/*"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >10th Marksheet <span class="required-star">✶</span></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="marksheet_10th">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="marksheet_10th"
+                    name="marksheet_10th"
+                    accept="application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >12th / Qualifying Marksheet
+                  <span class="required-star">✶</span></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="marksheet_12th">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="marksheet_12th"
+                    name="marksheet_12th"
+                    accept="application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >Diploma Certificate
+                  <span style="color: var(--text-muted); font-weight: 400"
+                    >(if any)</span
+                  ></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="diploma_certificate">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="diploma_certificate"
+                    name="diploma_certificate"
+                    accept="application/pdf"
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >Transfer Certificate
+                  <span class="required-star">✶</span></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="transfer_certificate">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="transfer_certificate"
+                    name="transfer_certificate"
+                    accept="application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >Migration Certificate
+                  <span style="color: var(--text-muted); font-weight: 400"
+                    >(if applicable)</span
+                  ></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="migration_certificate">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="migration_certificate"
+                    name="migration_certificate"
+                    accept="application/pdf"
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >Income Certificate
+                  <span class="required-star">✶</span></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="income_certificate">
+                    <span class="upload-icon">📄</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="income_certificate"
+                    name="income_certificate"
+                    accept="application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label
+                  >Government ID Proof
+                  <span class="required-star">✶</span></label
+                >
+                <div class="file-upload-wrapper">
+                  <label class="file-upload-label" for="id_proof">
+                    <span class="upload-icon">🪪</span>
+                    <span class="upload-text">
+                      Upload PDF
+                      <small>PDF &nbsp;·&nbsp; max 1 MB</small>
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    id="id_proof"
+                    name="id_proof"
+                    accept="application/pdf"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── 7. Fee Payment & Declaration ─────── -->
+        <section class="form-card" id="section-declaration">
+          <div class="section-header">
+            <span class="section-icon">📋</span>
+            <h2>Fee Payment &amp; Declaration</h2>
+            <span class="section-badge">Step 7</span>
+          </div>
+          <div class="fee-declaration-body">
+            <div class="field-group">
+              <label for="fee"
+                >Application Fee — Transaction / Receipt No.
+                <span class="required-star">✶</span></label
+              >
+              <input
+                type="text"
+                id="fee"
+                name="fee"
+                placeholder="e.g. TXN123456789"
+                required
+              />
+              <span class="field-hint"
+                >Enter the transaction ID or receipt number from your fee
+                payment confirmation.</span
+              >
+            </div>
+
+            <div class="signature-pair">
+              <div class="field-group">
+                <label for="student_signature"
+                  >Student's Full Name (as Signature)
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="student_signature"
+                  name="student_signature"
+                  placeholder="Type your full legal name"
+                  required
+                />
+              </div>
+              <div class="field-group">
+                <label for="parent_signature"
+                  >Parent's / Guardian's Name (as Signature)
+                  <span class="required-star">✶</span></label
+                >
+                <input
+                  type="text"
+                  id="parent_signature"
+                  name="parent_signature"
+                  placeholder="Type parent or guardian's full name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="declaration-box">
+              <label for="declaration">
+                <input
+                  type="checkbox"
+                  id="declaration"
+                  name="declaration"
+                  required
+                />
+                I hereby solemnly declare that all the information provided in
+                this application form is true, complete, and correct to the best
+                of my knowledge and belief. I understand that any false or
+                misleading information may result in cancellation of my
+                admission.
+              </label>
+            </div>
+
+            <div class="submit-area">
+              <button type="submit" class="btn-submit">
+                Submit Application
+              </button>
+              <p class="submit-note">
+                By submitting, you agree to our terms and privacy policy. You
+                will receive a confirmation email upon successful submission.
+              </p>
+              <button type="button" class="mybtn">Clear</button>
+            </div>
+          </div>
+        </section>
+      </form>
+
+      <footer class="form-footer">
+        <p>
+          For assistance, contact the Admissions Office &nbsp;·&nbsp;
+          admissions@college.edu &nbsp;·&nbsp; +91 98765 43210
+        </p>
+      </footer>
+    </main>
+   
+    <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleButton.textContent = 
+      document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
+</script>
+
+  </body>
+</html>
