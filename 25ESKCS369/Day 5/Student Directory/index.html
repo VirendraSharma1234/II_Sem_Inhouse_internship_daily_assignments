@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Directory</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md sticky-top" id="mainNavbar">
+      <div class="container-fluid px-3 px-md-4">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
+          <span class="brand-text">Student Directory</span>
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navContent"
+            aria-controls="navContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navContent"
+        >
+          <div class="search-wrap position-relative my-2 my-md-0 me-md-3">
+            <i class="bi bi-search search-icon"></i>
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control search-input"
+              placeholder="Search name, ID, branch, CGPA..."
+            />
+          </div>
+
+          <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+            <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-fluid px-3 px-md-4 py-4">
+      <section class="row g-3 mb-4" id="statsSection">
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div>
+              <div class="stat-value" id="statTotal">0</div>
+              <div class="stat-label">Total Students</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-trophy-fill"></i></div>
+            <div>
+              <div class="stat-value" id="statHighest">0</div>
+              <div class="stat-label">Highest CGPA</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-diagram-3-fill"></i></div>
+            <div>
+              <div class="stat-value" id="statBranches">0</div>
+              <div class="stat-label">Branches</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="bi bi-eye-fill"></i></div>
+            <div>
+              <div class="stat-value" id="statVisible">0</div>
+              <div class="stat-label">Currently Visible</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="filter-bar mb-4">
+        <div class="row g-2 align-items-center">
+          <div class="col-6 col-md-3">
+            <label for="branchFilter" class="filter-label">
+              <i class="bi bi-funnel" aria-hidden="true"></i> Branch
+            </label>
+            <select id="branchFilter" class="form-select">
+              <option value="all">All Branches</option>
+              <option value="CSE">CSE</option>
+              <option value="IT">IT</option>
+              <option value="ECE">ECE</option>
+              <option value="ME">ME</option>
+              <option value="Civil">Civil</option>
+            </select>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <label for="cgpaFilter" class="filter-label">
+              <i class="bi bi-bar-chart-fill" aria-hidden="true"></i> CGPA
+            </label>
+            <select id="cgpaFilter" class="form-select">
+              <option value="0">All CGPA</option>
+              <option value="9">Above 9.0</option>
+              <option value="8">Above 8.0</option>
+              <option value="7">Above 7.0</option>
+            </select>
+          </div>
+
+          <div class="col-6 col-md-3 d-flex align-items-end">
+            <button id="sortBtn" class="btn btn-sort w-100">
+              <i class="bi bi-sort-alpha-down"></i> Sort A–Z
+            </button>
+          </div>
+          <div class="col-6 col-md-3 d-flex align-items-end">
+            <button id="resetBtn" class="btn btn-reset w-100">
+              <i class="bi bi-arrow-counterclockwise"></i> Reset
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div id="noResult" class="no-result text-center d-none">
+        <div class="no-result-emoji">😕</div>
+        <h4>No Student Found</h4>
+        <p class="text-muted">Try another search keyword.</p>
+      </div>
+
+      <section class="row g-4" id="cardContainer"></section>
+    </main>
+
+    <footer class="text-center py-4 footer-note">
+      <small
+        >Built with HTML, CSS, Bootstrap 5 &amp; jQuery — Student Directory Mini
+        Project</small
+      >
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

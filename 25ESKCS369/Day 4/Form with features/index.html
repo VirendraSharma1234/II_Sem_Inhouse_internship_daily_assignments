@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0d6efd;
+            --bg-light: #f4f7f6;
+            --bg-dark: #212529;
+            --card-light: #ffffff;
+            --card-dark: #343a40;
+            --text-light: #212529;
+            --text-dark: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        body.dark-mode .card {
+            background-color: var(--card-dark);
+            border-color: #495057;
+            color: var(--text-dark);
+        }
+        body.dark-mode .form-control, 
+        body.dark-mode .form-select {
+            background-color: #2b3035;
+            border-color: #495057;
+            color: white;
+        }
+        body.dark-mode .navbar {
+            background-color: #1a1d20 !important;
+            border-bottom: 1px solid #495057;
+        }
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #333 !important;
+        }
+        body.dark-mode .navbar-brand {
+            color: #fff !important;
+        }
+        .main-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+        .card {
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .card-header {
+            background-color: transparent;
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .form-control, .form-select {
+            border-radius: 4px;
+            padding: 8px 12px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-blue);
+        }
+        .btn {
+            border-radius: 4px;
+            padding: 8px 20px;
+            font-weight: 500;
+        }
+        #themeBtn {
+            cursor: pointer;
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            border-radius: 4px;
+        }
+        body.dark-mode #themeBtn {
+            background: #495057;
+            color: #fff;
+            border-color: #6c757d;
+        }
+        #statsBadge {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        body.dark-mode #statsBadge {
+            background: #343a40;
+            color: #ced4da;
+            border-color: #495057;
+        }
+        .error-text {
+            color: #dc3545;
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+        .is-invalid ~ .error-text {
+            display: block;
+        }
+        .required-star {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-person-badge me-2"></i>Registration Form
+            </a>
+            <button id="themeBtn" title="Toggle Dark Mode">
+                <i class="bi bi-moon-fill" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="main-container">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Student Registration</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success mb-4" id="submitSuccess" style="display: none;">
+                    <i class="bi bi-check-circle-fill me-2"></i> Form submitted successfully!
+                </div>
+                <form id="userForm" novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name <span class="required-star">*</span></label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+                        <div class="error-text">This field is required.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sid" class="form-label">Student ID <span class="required-star">*</span></label>
+                        <input type="text" class="form-control" id="sid" placeholder="e.g. ST-999">
+                        <div class="error-text">This field is required.</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="dob" class="form-label">Date of Birth <span class="required-star">*</span></label>
+                            <input type="date" class="form-control" id="dob">
+                            <div class="error-text">This field is required.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="branch" class="form-label">Branch <span class="required-star">*</span></label>
+                            <select class="form-select" id="branch">
+                                <option value="">-- Select --</option>
+                                <option>Computer Science</option>
+                                <option>Mechanical</option>
+                                <option>Electrical</option>
+                                <option>Civil</option>
+                            </select>
+                            <div class="error-text">This field is required.</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address <span class="required-star">*</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                        <div class="error-text" id="emailError">This field is required.</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="pass" class="form-label">Password <span class="required-star">*</span></label>
+                            <input type="password" class="form-control" id="pass" placeholder="Min 6 characters">
+                            <div class="error-text" id="passError">This field is required.</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cpass" class="form-label">Confirm Password <span class="required-star">*</span></label>
+                            <input type="password" class="form-control" id="cpass">
+                            <div class="error-text" id="cpassError">This field is required.</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone (Optional)</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="10-digit number">
+                        <div class="error-text">Please enter a valid 10-digit number.</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="address" class="form-label">Address (Optional)</label>
+                        <textarea class="form-control" id="address" rows="2"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="reset" class="btn btn-outline-secondary" id="resetBtn">Clear</button>
+                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="statsBadge">Clicks: <span id="clickCount">0</span></div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const $body = $('body');
+            const $icon = $('#themeIcon');
+            $('#themeBtn').on('click', function() {
+                $body.toggleClass('dark-mode');
+                if ($body.hasClass('dark-mode')) {
+                    $icon.removeClass('bi-moon-fill').addClass('bi-sun-fill');
+                } else {
+                    $icon.removeClass('bi-sun-fill').addClass('bi-moon-fill');
+                }
+            });
+            let count = 0;
+            $(document).on('click', function() {
+                count++;
+                $('#clickCount').text(count);
+            });
+            const $form = $('#userForm');
+            const requiredIds = ['name', 'sid', 'dob', 'branch', 'email', 'pass', 'cpass'];
+            function checkField(id) {
+                const $el = $('#' + id);
+                const val = $.trim($el.val());
+                let valid = true;
+                let msg = "This field is required.";
+                if (requiredIds.includes(id) && val === "") {
+                    valid = false;
+                } else if (val !== "") {
+                    if (id === 'email') {
+                        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!regex.test(val)) {
+                            valid = false;
+                            msg = "Please enter a valid email address.";
+                        }
+                    } else if (id === 'pass') {
+                        if (val.length < 6) {
+                            valid = false;
+                            msg = "Must be at least 6 characters.";
+                        }
+                    } else if (id === 'cpass') {
+                        if (val !== $('#pass').val()) {
+                            valid = false;
+                            msg = "Passwords do not match.";
+                        }
+                    } else if (id === 'phone') {
+                        if (!/^[0-9]{10}$/.test(val.replace(/\s/g, ''))) {
+                            valid = false;
+                            msg = "Enter a valid 10-digit number.";
+                        }
+                    }
+                }
+                if (valid) {
+                    $el.removeClass('is-invalid');
+                } else {
+                    $el.addClass('is-invalid');
+                    if (id === 'email' || id === 'pass' || id === 'cpass' || id === 'phone') {
+                        $('#' + id + 'Error, #' + id + ' ~ .error-text').text(msg);
+                    }
+                }
+                return valid;
+            }
+            $form.find('input, select').on('blur', function() {
+                checkField($(this).attr('id'));
+            });
+            $form.on('submit', function(e) {
+                e.preventDefault();
+                let allOk = true;
+                $form.find('input, select').each(function() {
+                    const id = $(this).attr('id');
+                    if (id && !checkField(id)) {
+                        allOk = false;
+                    }
+                });
+                if (allOk) {
+                    $('#submitSuccess').show();
+                    $form[0].reset();
+                    $form.find('.is-invalid').removeClass('is-invalid');
+                    window.scrollTo(0, 0);
+                    setTimeout(() => {
+                        $('#submitSuccess').fadeOut();
+                    }, 4000);
+                } else {
+                    $('.is-invalid').first().focus();
+                }
+            });
+            $('#resetBtn').on('click', function() {
+                $form.find('.is-invalid').removeClass('is-invalid');
+                $('#submitSuccess').hide();
+            });
+        });
+    </script>
+</body>
+</html>
